@@ -1,19 +1,21 @@
 package com.devmarrima.gestorstock.entities;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_product")
+@Table(name = "tb_produto")
 public class Produto {
 
 	@Id
@@ -26,15 +28,6 @@ public class Produto {
 	private String codigoOriginal;
 	private String codigoFornecedor;
 	private BigDecimal precoMedioCusto;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "preco_atacado_id")
-	private Preco precoAtacado;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "preco_balcao_id")
-	private Preco precoBalcao;
-
 	private String locacaoEstoque;
 
 	@Column(columnDefinition = "TEXT")
@@ -46,6 +39,10 @@ public class Produto {
 	private String linha;
 	private String grupo;
 	private String subgrupo;
+
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	private List<Preco> precos = new ArrayList<>();
+
 
 	public Produto(Long id, String descricao) {
 		this.id = id;
@@ -90,22 +87,6 @@ public class Produto {
 
 	public void setPrecoMedioCusto(BigDecimal precoMedioCusto) {
 		this.precoMedioCusto = precoMedioCusto;
-	}
-
-	public Preco getPrecoAtacado() {
-		return precoAtacado;
-	}
-
-	public void setPrecoAtacado(Preco precoAtacado) {
-		this.precoAtacado = precoAtacado;
-	}
-
-	public Preco getPrecoBalcao() {
-		return precoBalcao;
-	}
-
-	public void setPrecoBalcao(Preco precoBalcao) {
-		this.precoBalcao = precoBalcao;
 	}
 
 	public String getLocacaoEstoque() {
@@ -171,4 +152,10 @@ public class Produto {
 	public void setSubgrupo(String subgrupo) {
 		this.subgrupo = subgrupo;
 	}
+
+	public List<Preco> getPrecos() {
+		return precos;
+	}
+
+	
 }
