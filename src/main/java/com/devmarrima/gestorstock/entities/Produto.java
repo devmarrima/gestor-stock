@@ -44,10 +44,30 @@ public class Produto {
 	private List<Preco> precos = new ArrayList<>();
 
 
-	public Produto(Long id, String descricao) {
+	public Produto() {
+
+	}
+
+	public Produto(Long id, String descricao, String codigoOriginal, String codigoFornecedor,
+			BigDecimal precoMedioCusto, String locacaoEstoque, String especificacoes, int quantidadeMinima,
+			int quantidadeEstoque, String aplicacao, String linha, String grupo, String subgrupo) {
+		super();
 		this.id = id;
 		this.descricao = descricao;
+		this.codigoOriginal = codigoOriginal;
+		this.codigoFornecedor = codigoFornecedor;
+		this.precoMedioCusto = precoMedioCusto;
+		this.locacaoEstoque = locacaoEstoque;
+		this.especificacoes = especificacoes;
+		this.quantidadeMinima = quantidadeMinima;
+		this.quantidadeEstoque = quantidadeEstoque;
+		this.aplicacao = aplicacao;
+		this.linha = linha;
+		this.grupo = grupo;
+		this.subgrupo = subgrupo;
 	}
+
+
 
 	public Long getId() {
 		return id;

@@ -42,6 +42,14 @@ public class Preco {
 		this.tipo = tipo;
 		this.dataVigencia = dataVigencia;
 	}
+	
+	
+
+	public Preco() {
+
+	}
+
+
 
 	public Long getId() {
 		return id;

@@ -24,7 +24,13 @@ public class ProdutoDTO {
 
     private List<PrecoDTO> precos;
     
-    public ProdutoDTO(Long id, String descricao, String codigoOriginal, String codigoFornecedor,
+    
+    
+    public ProdutoDTO() {
+
+	}
+
+	public ProdutoDTO(Long id, String descricao, String codigoOriginal, String codigoFornecedor,
             BigDecimal precoMedioCusto, String locacaoEstoque, String especificacoes, int quantidadeMinima,
             int quantidadeEstoque, String aplicacao, String linha, String grupo, String subgrupo, List<PrecoDTO> precos) {
         this.id = id;

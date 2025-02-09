@@ -6,7 +6,7 @@ public enum TipoPreco {
 
     private final String descricao;
 
-    // Construtor
+	// Construtor
     TipoPreco(String descricao) {
         this.descricao = descricao;
     }

@@ -15,7 +15,12 @@ public class PrecoDTO {
 	private TipoPreco tipo;
 	private Instant dataVigencia;
     
-    public PrecoDTO(Long id, BigDecimal precoIndicado, BigDecimal precoMinimo, TipoPreco tipo, Instant dataVigencia) {
+	
+    public PrecoDTO() {
+
+	}
+
+	public PrecoDTO(Long id, BigDecimal precoIndicado, BigDecimal precoMinimo, TipoPreco tipo, Instant dataVigencia) {
         this.id = id;
         this.precoIndicado = precoIndicado;
         this.precoMinimo = precoMinimo;
