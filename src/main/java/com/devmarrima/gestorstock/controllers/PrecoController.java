@@ -13,15 +13,13 @@ import com.devmarrima.gestorstock.services.PrecoService;
 @RestController
 @RequestMapping(value = "/preco")
 public class PrecoController {
+	
+	@Autowired
+	private PrecoService service;
 
-	public class ProdutoController {
-		@Autowired
-		private PrecoService service;
-
-		@GetMapping(value = ("/{id}"))
-		public ResponseEntity<PrecoDTO> findById(@PathVariable Long id) {
-			PrecoDTO dto = service.findById(id);
-			return ResponseEntity.ok(dto);
-		}
+	@GetMapping(value = ("/{id}"))
+	public ResponseEntity<PrecoDTO> findById(@PathVariable Long id) {
+		PrecoDTO dto = service.findById(id);
+		return ResponseEntity.ok(dto);
 	}
 }
