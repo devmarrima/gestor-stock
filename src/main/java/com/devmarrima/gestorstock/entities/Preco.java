@@ -2,6 +2,7 @@ package com.devmarrima.gestorstock.entities;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -87,4 +88,26 @@ public class Preco {
         return tipo != null ? tipo.getDescricao() : null;
     }
 
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Preco other = (Preco) obj;
+		return Objects.equals(id, other.id);
+	}
+ 
+	
 }

@@ -3,6 +3,7 @@ package com.devmarrima.gestorstock.entities;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -40,9 +41,8 @@ public class Produto {
 	private String grupo;
 	private String subgrupo;
 
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Preco> precos = new ArrayList<>();
-
 
 	public Produto() {
 
@@ -66,8 +66,6 @@ public class Produto {
 		this.grupo = grupo;
 		this.subgrupo = subgrupo;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -177,5 +175,21 @@ public class Produto {
 		return precos;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return Objects.equals(id, other.id);
+	}
+
 }
