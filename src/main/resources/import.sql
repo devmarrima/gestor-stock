@@ -1,3 +1,9 @@
+INSERT INTO tb_acerto_estoque (id, cod_produto, descricao, operacao, quantidade, observacao) VALUES (UUID(), 1, 'Produto A', 'ENTRADA', 10, 'Observação 1');
+INSERT INTO tb_acerto_estoque (id, cod_produto, descricao, operacao, quantidade, observacao) VALUES (UUID(), 2, 'Produto B', 'SAIDA', 5, 'Observação 2');
+INSERT INTO tb_acerto_estoque (id, cod_produto, descricao, operacao, quantidade, observacao) VALUES (UUID(), 3, 'Produto C', 'ENTRADA', 15, 'Observação 3');
+
+INSERT INTO tb_produto (descricao, codigoOriginal, codigoFornecedor, precoMedioCusto, locacaoEstoque, especificacoes, quantidadeMinima, quantidadeEstoque, aplicacao, linha, grupo, subgrupo)
+VALUES ('Kit Embreagem', '77889E', 'EMBR-005', 950.50, 'E5', 'Kit completo de embreagem para caminhões', 3, 8, 'Transmissão', 'Embreagem', 'Kits', 'Pesado');
 INSERT INTO TB_PRODUTO (DESCRICAO, CODIGO_ORIGINAL, CODIGO_FORNECEDOR, PRECO_MEDIO_CUSTO, LOCACAO_ESTOQUE, ESPECIFICACOES, QUANTIDADE_MINIMA, QUANTIDADE_ESTOQUE, APLICACAO, LINHA, GRUPO, SUBGRUPO) VALUES ('Produto A', 'COD123', 'FORN001', 10.50, 'A1', 'Especificação A', 5, 100, 'Aplicação A', 'Linha A', 'Grupo A', 'Subgrupo A');
 INSERT INTO TB_PRODUTO (DESCRICAO, CODIGO_ORIGINAL, CODIGO_FORNECEDOR, PRECO_MEDIO_CUSTO, LOCACAO_ESTOQUE, ESPECIFICACOES, QUANTIDADE_MINIMA, QUANTIDADE_ESTOQUE, APLICACAO, LINHA, GRUPO, SUBGRUPO) VALUES ('Produto B', 'COD124', 'FORN002', 20.75, 'A2', 'Especificação B', 10, 200, 'Aplicação B', 'Linha B', 'Grupo B', 'Subgrupo B');
 INSERT INTO TB_PRODUTO (DESCRICAO, CODIGO_ORIGINAL, CODIGO_FORNECEDOR, PRECO_MEDIO_CUSTO, LOCACAO_ESTOQUE, ESPECIFICACOES, QUANTIDADE_MINIMA, QUANTIDADE_ESTOQUE, APLICACAO, LINHA, GRUPO, SUBGRUPO) VALUES ('Produto C', 'COD125', 'FORN003', 30.00, 'A3', 'Especificação C', 15, 300, 'Aplicação C', 'Linha C', 'Grupo C', 'Subgrupo C');
