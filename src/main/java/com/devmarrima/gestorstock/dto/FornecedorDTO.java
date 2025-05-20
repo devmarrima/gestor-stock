@@ -37,21 +37,18 @@ public class FornecedorDTO {
 	@NotBlank(message = "Endereço é obrigatório")
 	private String endereco;
 	
-	private List<NotaFiscalDTO> notasFiscais;
 	
 	public FornecedorDTO(
 			Long id, 
 			String nome,
 			String cnpj,
-			String email, String telefone,
-			String endereco, List<NotaFiscalDTO> notasFiscais) {
+			String email, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.email = email;
 		this.telefone = telefone;
 		this.endereco = endereco;
-		this.notasFiscais = new ArrayList<>();
 	}
 
 	
@@ -120,16 +117,6 @@ public class FornecedorDTO {
 	}
 
 
-	public List<NotaFiscalDTO> getNotasFiscais() {
-		return notasFiscais;
-	}
 
-
-	public void setNotasFiscais(List<NotaFiscalDTO> notasFiscais) {
-		this.notasFiscais = notasFiscais;
-	}
-	
-	
-	
 	
 }
