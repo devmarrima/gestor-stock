@@ -1,16 +1,15 @@
 package com.devmarrima.gestorstock.services;
 
-import com.devmarrima.gestorstock.dto.CreateAcertoEstoqueDTO;
-import com.devmarrima.gestorstock.entities.AcertoEstoque;
-import com.devmarrima.gestorstock.repositories.AcertoEstoqueRepository;
-import com.devmarrima.gestorstock.services.exceptions.ResourceNotFoundException;
-import org.jetbrains.annotations.NotNull;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-import java.util.UUID;
+import com.devmarrima.gestorstock.dto.CreateAcertoEstoqueDTO;
+import com.devmarrima.gestorstock.entities.AcertoEstoque;
+import com.devmarrima.gestorstock.repositories.AcertoEstoqueRepository;
+import com.devmarrima.gestorstock.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class AcertoEstoqueService {

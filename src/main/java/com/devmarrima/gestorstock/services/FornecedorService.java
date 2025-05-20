@@ -3,7 +3,6 @@ package com.devmarrima.gestorstock.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devmarrima.gestorstock.dto.FornecedorDTO;
-import com.devmarrima.gestorstock.dto.ItemNotaFiscalDTO;
-import com.devmarrima.gestorstock.dto.NotaFiscalDTO;
 import com.devmarrima.gestorstock.entities.Fornecedor;
-import com.devmarrima.gestorstock.entities.ItemNotaFiscal;
-import com.devmarrima.gestorstock.entities.NotaFiscal;
 import com.devmarrima.gestorstock.repositories.FornecedorRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -75,11 +70,7 @@ public class FornecedorService {
 				if(!Objects.equals(dto.getEndereco(), fornecedor.getEndereco())) {
 					fornecedor.setEndereco(dto.getEndereco());
 				}
-				
-				if(!Objects.equals(dto.getNotasFiscais(), fornecedor.getNotasFiscais())) {
-					fornecedor.setNotasFiscais(fornecedor.getNotasFiscais());;
-				}
-									
+								
 				
 				Fornecedor fornecedorAtualizado = fornecedorRepository.save(fornecedor);
 					
@@ -99,28 +90,6 @@ public class FornecedorService {
 	}
 	
 	
-	//Copiando dados do DTO para entidade notaFiscal
-	private NotaFiscal toNotaFiscal(NotaFiscalDTO notaFiscalDTO) {
-	    NotaFiscal notaFiscal = new NotaFiscal();
-
-	    notaFiscal.setId(notaFiscalDTO.getId());
-	    notaFiscal.setNumero(notaFiscalDTO.getNumero());
-	    notaFiscal.setSerie(notaFiscalDTO.getSerie());
-	    notaFiscal.setDataEmissao(notaFiscalDTO.getDataEmissao());
-	    notaFiscal.setValorTotal(notaFiscalDTO.getValorTotal());
-	    notaFiscal.setObservacoes(notaFiscalDTO.getObservacoes());
-	    notaFiscal.setChaveAcesso(notaFiscalDTO.getChaveAcesso());
-	    notaFiscal.setStatusNota(notaFiscalDTO.getStatusNota());
-
-	    // Converte os itens de volta para entidade, se necessário
-	    List<ItemNotaFiscal> itens = notaFiscalDTO.getItens().stream()
-	            .map(ItemNotaFiscalDTO::toEntity) // Supondo que exista esse método
-	            .collect(Collectors.toList());
-	    notaFiscal.setItens(itens);
-
-	    return notaFiscal;
-	}
-	
 	
 	//Copiando dados do DTO para entidade
 	public void paraEntidade(Fornecedor entity, FornecedorDTO dto) {
@@ -129,13 +98,9 @@ public class FornecedorService {
 		entity.setEmail(dto.getEmail());
 		entity.setTelefone(dto.getTelefone());
 		entity.setEndereco(dto.getEndereco());
-		
-		entity.setNotasFiscais(dto.getNotasFiscais()
-				.stream()
-				.map(this::toNotaFiscal)
-				.collect(Collectors.toList()));
-		
-		}
+		entity.getNotasFiscais();
 	
+	
+	}
 	
 }

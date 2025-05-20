@@ -1,15 +1,10 @@
 package com.devmarrima.gestorstock.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 
@@ -37,19 +32,14 @@ public class Fornecedor {
 	@Column(name="FOR_ENDERECO")
 	private String endereco;
 	
-	@OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<NotaFiscal> notasFiscais;
-
 	
-	public Fornecedor(Long id, String nome, String cnpj, String email, String telefone, String endereco,
-			List<NotaFiscal> notasFiscais) {
+	public Fornecedor(Long id, String nome, String cnpj, String email, String telefone, String endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.email = email;
 		this.telefone = telefone;
 		this.endereco = endereco;
-		this.notasFiscais = new ArrayList<>();
 		
 	}
 	
@@ -104,17 +94,6 @@ public class Fornecedor {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
-	public List<NotaFiscal> getNotasFiscais() {
-		return notasFiscais;
-	}
-
-	public void setNotasFiscais(List<NotaFiscal> notasFiscais) {
-		this.notasFiscais = notasFiscais;
-	}
-	
-	
-	
 	
 
 }

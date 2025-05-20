@@ -4,9 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import com.devmarrima.gestorstock.entities.Produto;
 
-import java.util.Optional;
+import com.devmarrima.gestorstock.entities.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
